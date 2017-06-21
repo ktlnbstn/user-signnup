@@ -13,25 +13,20 @@ def add_info():
     pass1 = request.form['password']
     pass2 = request.form['password2']
 
-    # if the user leaves a field empty tell them the error
-    if new_user == '' or pass1 == '' or pass2 == '':
-        error = "Invalid input. Please do not use a space."
-        return redirect("/?error=" + error)
-
     # if the user uses an invalid username tell them the error
     if len(new_user) < 4 or len(new_user) > 20 or ' ' in new_user:
-        error = "Invalid username. Must be between 4 and 20 characters."
+        error = "Invalid username. Must be 4-20 characters without spaces."
         return redirect("/?error=" + error)
 
     # if the user typed an invalid passowrd tell them the error
     if len(pass1) < 4 or len(pass1) > 20 or ' ' in pass1:
-        error = "Invlaid password. Must be between 4 and 20 characters."
-        return redirect("/?error=" + error)
+        error2 = "Invlaid password. Must be 4-20 characters without spaces."
+        return redirect("/?error=" + error2)
 
     # if the user typed different passowrds tell them the error
     if pass1 != pass2:
-        error = "You typed two different passwords."
-        return redirect("/?error=" + error)
+        error3 = "You typed two different passwords."
+        return redirect("/?error=" + error3)
 
     return render_template('welcome.html', username=new_user)
 

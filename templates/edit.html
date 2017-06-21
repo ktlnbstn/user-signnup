@@ -2,21 +2,61 @@
 
 {% block content %}
 
-<h2>Sign-Up Here</h2>
-
 <form action="/signup" method="post">
-    <label for="username">Username: </label>
-        <input id=username type="text" name="username"/>
-    <label for="password">Password: </label>
-        <input id=password type="password" name="password"/>
-    <label for="password2">Verify Password: </label>
-        <input id=password2 type="password" name="password2"/>
-    <label for="emial">(Optional) Email: </label>
-        <input id=email type="text" name="email"/>
-    <input type="submit" value="Submit Info"/>
+  <table>
+    <tr>
+      <td>
+        <label for="username">Username: </label>
+      </td>
+      <td>
+        <input id=username type="text" name="username" required>
+      </td>
+      <td>
+        {% if error %}
+        <p class='error'>{{ error }}</p>
+        {% endif %}
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <label for="password">Password: </label>
+      </td>
+      <td>
+        <input id=password type="password" name="password" required>
+      </td>
+      <td>
+      {% if error2 %}
+      <p class='error'>{{ error2 }}</p>
+      {% endif %}
+      </td>
+    </tr>
+
+
+    <tr>
+      <td>
+        <label for="password2">Verify Password: </label>
+      </td>
+      <td>
+        <input id=password2 type="password" name="password2" required>
+      </td>
+      <td>
+        {% if error3 %}
+        <p class='error'>{{ error3 }}</p>
+        {% endif %}
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <label for="emial"> Email (Optional): </label>
+      </td>
+      <td>
+        <input id=email type="email" name="email">
+      </td>
+    </tr>
+  </table>
+  <input type="submit" value="Submit Info"/>
 </form>
 
-{% if error %}
-  <p class='error'>{{ error }}</p>
-{% endif %}
 {% endblock %}
