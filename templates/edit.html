@@ -5,55 +5,39 @@
 <form action="/signup" method="post">
   <table>
     <tr>
-      <td>
-        <label for="username">Username: </label>
-      </td>
-      <td>
-        <input id=username type="text" name="username" required>
-      </td>
+      <th><label for="username">Username: </label></th>
+      <td><input id=username type="text" name="username" required></td>
       <td>
         {% if error %}
-        <p class='error'>{{ error }}</p>
+        <p class='error'>{{ error }} </p>
         {% endif %}
       </td>
     </tr>
 
     <tr>
+      <th><label for="password">Password: </label></th>
+      <td><input id=password type="password" name="password" required></td>
       <td>
-        <label for="password">Password: </label>
-      </td>
-      <td>
-        <input id=password type="password" name="password" required>
-      </td>
-      <td>
-      {% if error %}
-      <p class='error'>{{ error2 }}</p>
+      {% if error2 %}
+      <p class='error'>{{ error2 }} </p>
       {% endif %}
       </td>
     </tr>
 
 
     <tr>
+      <th><label for="password2">Verify Password: </label></th>
+      <td><input id=password2 type="password" name="password2" required></td>
       <td>
-        <label for="password2">Verify Password: </label>
-      </td>
-      <td>
-        <input id=password2 type="password" name="password2" required>
-      </td>
-      <td>
-        {% if error %}
-        <p class='error'>{{ error3 }}</p>
+        {% if error3 %}
+        <p class='error'>{{ error3 }} </p>
         {% endif %}
       </td>
     </tr>
 
     <tr>
-      <td>
-        <label for="emial"> Email (Optional): </label>
-      </td>
-      <td>
-        <input id=email type="email" name="email">
-      </td>
+      <th><label for="emial"> Email (Optional): </label></th>
+      <td><input id=email type="email" name="email"></td>
     </tr>
   </table>
   <input type="submit" value="Submit Info"/>
